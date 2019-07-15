@@ -5,27 +5,25 @@ import Cell from '../Cell/index'
 
 const Board = ({ rows, cols, changeLightStartOn }) => {
 
-  const createBoard = () => {
+  const [hasWon, setHasWon] = React.useState(false)
+  const [board, setBoard] = React.useState(createBoard())
+  
+  function createBoard() {
     let board = []
-    for(let y = 0; y < rows; y++) {
+    for(let x = 0; x < rows; x++) {
       let row = []
-      for(let x = 0; x < cols; x++) row.push(Math.random() < changeLightStartOn)
+      for(let y = 0; y < cols; y++) row.push(Math.random() < changeLightStartOn)
       board.push(row)
     }
     return board
   }
 
-  const [hasWon, setHasWon] = React.useState(false)
-  const [board, setBoard] = React.useState(createBoard())
+  console.log(board)
 
   return (
     <table className="board">
       <tbody>
-        <tr>
-          <Cell isLit />
-          <Cell isLit={false} />
-          <Cell isLit />
-        </tr>
+        { board.map((arr, x) => <tr key={x}>{ arr.map((val, y) => <Cell key={`${x}-${y}`} isLit={ val }/>) }</tr>) }
       </tbody>
     </table>
     )
