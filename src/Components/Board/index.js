@@ -6,12 +6,16 @@ import Cell from '../Cell/index'
 const Board = () => {
 
   return (
-    <>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-    </>
-  )
+    <table className="board">
+      <tbody>
+        <tr>
+          <Cell isLit />
+          <Cell isLit />
+          <Cell isLit />
+        </tr>
+      </tbody>
+    </table>
+    )
 }
 
 export default Board
