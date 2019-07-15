@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Cell = () => (
-  <h1>I am a cell \o/</h1>
-)
+const Cell = ({ isLit, toggleCell }) => <td className={ "cell" + isLit ? " cell-lit" : ""} onClick={ toggleCell }/>
 
 export default Cell
