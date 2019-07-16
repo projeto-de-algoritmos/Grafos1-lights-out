@@ -1,9 +1,9 @@
 .cell {
   width: 8rem;
   height: 8rem;
-  background-color: #335c69;
+  background-color: rgb(100, 53, 187);
 }
 
 .cell-lit {
-  background-color: #00d7fd;
+  background-color: red;
 }

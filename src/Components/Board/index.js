@@ -5,16 +5,17 @@ import Cell from '../Cell/index'
 
 const Board = ({ rows, cols, changeLightStartOn }) => {
 
+  const [board, setBoard] = React.useState(createBoard(rows, cols, changeLightStartOn))
   const [hasWon, setHasWon] = React.useState(false)
-  const [board, setBoard] = React.useState(createBoard())
   
-  function createBoard() {
+  function createBoard(rows, cols, changeLightStartOn) {
+
     let board = []
-    for(let x = 0; x < rows; x++) {
+    Array.from({length: rows}).map(_ => {
       let row = []
-      for(let y = 0; y < cols; y++) row.push(Math.random() < changeLightStartOn)
+      Array.from({length: cols}).map(_ => row.push(Math.random() < changeLightStartOn))
       board.push(row)
-    }
+    })
     return board
   }
 
