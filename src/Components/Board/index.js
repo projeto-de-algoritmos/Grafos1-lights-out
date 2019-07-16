@@ -1,43 +1,29 @@
 import React from 'react'
-import './style.css'
 
 import Cell from '../Cell/index'
-import { createBoard } from '../../utils/board'
+import { createBoard, toggleAdjCells } from '../../utils/board'
+import './style.css'
 
 const Board = ({ rows, cols, changeLightStartOn }) => {
 
   const [board, setBoard] = React.useState(createBoard(rows, cols, changeLightStartOn))
   const [hasWon, setHasWon] = React.useState(false)
 
-  console.log(board)
+  const handleCellClick = (board, rows, cols, x, y) => {
 
-  function toggleAdjCells(board, rows, cols, x, y) {
-    let newBoard = [...board]
-    console.log(`board: ${ rows} x ${cols}`)
-    toggleCell(x, y)
-    toggleCell(x - 1, y)
-    toggleCell(x + 1, y)
-    toggleCell(x, y - 1)
-    toggleCell(x, y + 1)
-    
-    const hasWon = newBoard.every(arr => arr.every(val => !val))
+    setBoard(toggleAdjCells(board, rows, cols, x, y))
 
-    setTimeout(() => setHasWon(hasWon), 400)
-    setBoard(newBoard)
-
-    function toggleCell(x, y) {
-      if((x >= 0 && x < rows) && (y >= 0 && y < cols))
-        newBoard[x][y] = !newBoard[x][y]
-    }
+    const hasWon = board.every(arr => arr.every(val => !val))
+    hasWon && setTimeout(() => setHasWon(true), 400)
   }
-  
+
   return (
     <table className="board">
       {hasWon ? <h1>ganho</h1> : null}
       <tbody>
         {board.map((arr, x) => 
           <tr key={ x }>
-            { arr.map((val, y) => <Cell key={ `${x}-${y}` } isLit={ val } toggleCell={ () => toggleAdjCells(board, rows, cols, x, y) }/>) }
+            { arr.map((val, y) => <Cell key={ `${x}-${y}` } isLit={ val } toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
           </tr>
         )}
       </tbody>

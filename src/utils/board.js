@@ -8,3 +8,20 @@ export const createBoard = (rows, cols, changeLightStartOn) => {
   })
   return board
 }
+
+export const toggleAdjCells = (board, rows, cols, x, y) => {
+  const newBoard = [...board]
+
+  toggleCell(x, y)
+  toggleCell(x - 1, y)
+  toggleCell(x + 1, y)
+  toggleCell(x, y - 1)
+  toggleCell(x, y + 1)
+
+  function toggleCell(x, y) {
+    if((x >= 0 && x < rows) && (y >= 0 && y < cols))
+      newBoard[x][y] = !newBoard[x][y]
+  }
+
+  return newBoard
+}
