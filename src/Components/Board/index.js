@@ -14,12 +14,16 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
   function toggleAdjCells(board, rows, cols, x, y) {
     let newBoard = [...board]
     console.log(`board: ${ rows} x ${cols}`)
-    newBoard[x][y] = toggleCell(x, y)
+    toggleCell(x, y)
+    toggleCell(x - 1, y)
+    toggleCell(x + 1, y)
+    toggleCell(x, y - 1)
+    toggleCell(x, y + 1)
     setBoard(newBoard)
 
-    function toggleCell() {
+    function toggleCell(x, y) {
       if((x >= 0 && x < rows) && (y >= 0 && y < cols))
-        return !board[x][y]
+        newBoard[x][y] = !newBoard[x][y]
     }
   }
   
