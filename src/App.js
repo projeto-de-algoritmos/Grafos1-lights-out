@@ -3,7 +3,7 @@ import './App.css';
 import Board from './Components/Board/index'
 
 function App() {
-  return <Board rows={5} cols={5} changeLightStartOn={.2}/>
+  return <Board rows={5} cols={5} changeLightStartOn={0}/>
 }
 
 export default App;

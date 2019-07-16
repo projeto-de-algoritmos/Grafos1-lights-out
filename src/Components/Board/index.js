@@ -19,6 +19,10 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
     toggleCell(x + 1, y)
     toggleCell(x, y - 1)
     toggleCell(x, y + 1)
+    
+    const hasWon = newBoard.every(arr => arr.every(val => !val))
+
+    setTimeout(() => setHasWon(hasWon), 400)
     setBoard(newBoard)
 
     function toggleCell(x, y) {
@@ -27,10 +31,9 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
     }
   }
   
-
-
   return (
     <table className="board">
+      {hasWon ? <h1>ganho</h1> : null}
       <tbody>
         {board.map((arr, x) => 
           <tr key={ x }>
