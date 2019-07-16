@@ -2,6 +2,7 @@
   width: 8rem;
   height: 8rem;
   background-color: rgb(100, 53, 187);
+  cursor: pointer;
 }
 
 .cell-lit {

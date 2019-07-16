@@ -11,10 +11,28 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
 
   console.log(board)
 
+  function toggleAdjCells(board, rows, cols, x, y) {
+    let newBoard = [...board]
+    console.log(`board: ${ rows} x ${cols}`)
+    newBoard[x][y] = toggleCell(x, y)
+    setBoard(newBoard)
+
+    function toggleCell() {
+      if((x >= 0 && x < rows) && (y >= 0 && y < cols))
+        return !board[x][y]
+    }
+  }
+  
+
+
   return (
     <table className="board">
       <tbody>
-        { board.map((arr, x) => <tr key={x}>{ arr.map((val, y) => <Cell key={`${x}-${y}`} isLit={ val }/>) }</tr>) }
+        {board.map((arr, x) => 
+          <tr key={ x }>
+            { arr.map((val, y) => <Cell key={ `${x}-${y}` } isLit={ val } toggleCell={ () => toggleAdjCells(board, rows, cols, x, y) }/>) }
+          </tr>
+        )}
       </tbody>
     </table>
     )
