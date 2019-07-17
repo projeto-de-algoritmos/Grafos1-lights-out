@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Cell from '../Cell/index'
+import NeonText from '../NeonText/index'
 import { createBoard, toggleAdjCells } from '../../utils/board'
 import './style.css'
 
@@ -18,16 +19,18 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
   }
 
   return (
-    <table className="board">
-      {hasWon ? <h1>ganho</h1> : null}
-      <tbody>
-        {board.map((arr, x) => 
-          <tr key={ x }>
-            { arr.map((val, y) => <Cell key={ `${x}-${y}` } isLit={ val } toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
-          </tr>
-        )}
-      </tbody>
-    </table>
+    <>
+      <NeonText first="Lights" second="Out"/>
+      <table className="board">
+        <tbody>
+          {board.map((arr, x) => 
+            <tr key={ x }>
+              { arr.map((val, y) => <Cell key={ `${x}-${y}` } isLit={ val } toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </>
     )
 }
 

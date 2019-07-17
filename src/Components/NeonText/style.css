@@ -3,27 +3,23 @@
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
 }
 
-.container {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+.text-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .neon-blue {
   font-family: neon;
   color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
+  font-size: 6.5rem;
   animation: neon-blue 1s ease infinite;
 }
 
 .neon-orange {
   font-family: neon;
   color: #FB4264;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
+  font-size: 6.5rem;
   animation: neon-orange 2s linear infinite;
 }
 
