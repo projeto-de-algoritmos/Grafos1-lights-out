@@ -15,12 +15,12 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
     setBoard(toggleAdjCells(board, rows, cols, x, y))
 
     const hasWon = board.every(arr => arr.every(val => !val))
-    hasWon && setTimeout(() => setHasWon(true), 400)
+    hasWon && setTimeout(() => setHasWon(true), 250)
   }
 
   return (
     <>
-      <NeonText first="Lights" second="Out"/>
+      { !hasWon ? <NeonText first="Lights" second="Out"/> : <NeonText first="You" second="Won"/>}
       <table className="board">
         <tbody>
           {board.map((arr, x) => 

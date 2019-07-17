@@ -1,10 +1,13 @@
 .cell {
   width: 8rem;
   height: 8rem;
-  background-color: rgb(100, 53, 187);
+  background-color: #6435bb;
+  border-radius: .3rem;
   cursor: pointer;
+  transition: all .2s ease;
 }
 
 .cell-lit {
   background-color: red;
+  box-shadow: 0 0 5rem rgba(255, 0, 0, .4);
 }
