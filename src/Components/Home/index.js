@@ -5,11 +5,14 @@ import NeonText from '../NeonText/index'
 const Home = () => {
 
   return (
-    <>
+    <main>
       <NeonText first="Lights" second="Out"/>
-      <label>Login</label>
-      <input/>
-    </>
+
+      <div className="home-auth-selection">
+        <button className="btn btn-primary">Login</button>
+        <button className="btn btn-secondary">Sign Up</button>
+      </div>
+    </main>
   )
 }
 
