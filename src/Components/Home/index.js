@@ -1,10 +1,15 @@
 import React from 'react'
 import './index.css'
+import NeonText from '../NeonText/index'
 
 const Home = () => {
 
   return (
-    <h1>Home Screen</h1>
+    <>
+      <NeonText first="Lights" second="Out"/>
+      <label>Login</label>
+      <input/>
+    </>
   )
 }
 

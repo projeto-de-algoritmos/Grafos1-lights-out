@@ -20,7 +20,7 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
 
   return (
     <>
-      { !hasWon ? <NeonText first="Lights" second="Out"/> : <NeonText first="You" second="Won"/>}
+      { hasWon && <NeonText first="You" second="Won"/> }
       <table className="board">
         <tbody>
           {board.map((arr, x) => 
