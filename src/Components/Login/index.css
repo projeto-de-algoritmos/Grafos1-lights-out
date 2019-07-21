@@ -4,6 +4,7 @@ form {
   flex-direction: column;
   justify-content: space-around;
   align-items: space-around;
+  color: white;
 }
 
 label {
@@ -13,10 +14,14 @@ label {
 }
 
 input {
-  border:none;
+  margin-top: .5rem;
+  border: none;
+  outline: none;
   background-color:transparent;
   box-shadow: none;
   border-bottom: .15rem solid orange;
   width: 20rem;
   height: 2.2rem;
+  color: white;
+  font-family: inherit;
 }

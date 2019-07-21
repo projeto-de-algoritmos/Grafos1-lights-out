@@ -1,17 +1,17 @@
 import React from 'react'
-import './login.css'
+import './index.css'
 
-const Login = () => (
+const Login = ({ email, password, setEmail, setPassword}) => (
   <form>
-    <h1>Login</h1>
+    <h1>Enter your data</h1>
     <label>
       Email
-      <input/>
+      <input value={ email } onChange={e => setEmail(e.target.value) }/>
     </label>
     
     <label>
       Password
-      <input/>
+      <input value={ password } onChange={ e => setPassword(e.target.value) }/>
     </label>
   </form>
 )
