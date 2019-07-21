@@ -3,9 +3,18 @@ import Board from './Components/Board/index'
 import Home from './Components/Home/index'
 import './App.css'
 import './utils/animation.css'
-/* <Board rows={5} cols={5} changeLightStartOn={.3}/> */
+
 function App() {
-  return <Home/>
+  const [startGame, setStartGame] = React.useState(false)
+  const [username, setUserName] = React.useState('')
+
+  const logUserIn = () => {
+    setStartGame(true)
+    console.log(username)
+  }
+  return !startGame
+          ? <Home username={username} setUserName={setUserName} logUserIn={logUserIn}/>
+          : <Board rows={5} cols={5} changeLightStartOn={.3}/>
 }
 
 export default App;
