@@ -1,13 +1,15 @@
 .cell {
   width: 8rem;
   height: 8rem;
-  background-color: #6435bb;
+  background-color: #808080;
   border-radius: .3rem;
   cursor: pointer;
   transition: all .2s ease;
+  border: .1rem solid black;
 }
 
-.cell-lit {
-  background-color: red;
-  box-shadow: 0 0 5rem rgba(255, 0, 0, .4);
-}
+.cell:hover { transform: translateY(-.15rem); }
+.cell-lit, .cell-lit:hover { background-color: orange; }
+
+.cell-lit { box-shadow: 0 0 5rem rgba(255, 166, 0, 0.5); }
+.cell-lit:hover { box-shadow: 0 0 8rem rgba(255, 166, 0, 0.6); }
