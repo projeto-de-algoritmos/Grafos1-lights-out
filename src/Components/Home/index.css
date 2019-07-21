@@ -1,4 +1,4 @@
-main {
+.home {
   background-color: #424242;
   width: 100vw;
   height: 100vh;
@@ -8,18 +8,25 @@ main {
   align-items: center;
 }
 
-.home-auth-selection {
-  margin-top: 2rem;
+.auth-container {
+  height: 10rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 39rem;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.auth-cta {
+  color: white;
+  animation: pulse 1.5s infinite ease-out;
 }
 
 .btn {
   font-family: inherit;
   font-size: 1.4rem;
   font-weight: bold;
-  padding: 1rem 6rem;
+  padding: 1rem 7rem;
   border-radius: .6rem;
   border: none;
   color: white;
@@ -34,7 +41,7 @@ main {
 .btn.disabled {
   background-color: rgb(177, 177, 177);
   box-shadow: none;
-  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .btn.disabled:hover {

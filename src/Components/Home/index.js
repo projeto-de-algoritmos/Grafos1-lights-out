@@ -5,30 +5,25 @@ import Login from '../Login/index'
 import './index.css'
 
 const Home = () => {
-  const [authType, setAuthType] = React.useState(null)
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-
-  const isLoginSelected = () => authType === 'login'
-  const isSignUpSelected = () => authType === 'signup'
-  const getMethodForLogin = () => isLoginSelected() ? () => authLogin() : () => {setAuthType('login'); setEmail(''); setPassword('');}
-
-  const authLogin = () => {
-    const user = { email, password }
-    console.log(user)
+  const [login, setLogin] = React.useState(false)
+  const [username, setUserName] = React.useState('')
+  const getLoginComponent = () => <Login username={username} setUserName={setUserName} />
+  const sendUser = () => {
+    
   }
-
   return (
-    <main>
+    <div className="home">
       <NeonText first="Lights" second="Out"/>
-      { isLoginSelected() ? <Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/> : null }
-      <div className="home-auth-selection">
-        <button className={ classNames('btn', 'btn-primary', {'disabled': isLoginSelected() && (!email || !password)}) }
-                onClick={ getMethodForLogin() }> {isLoginSelected() ? 'Enter' : 'Login'} </button>
-                
-        <button className="btn btn-secondary" onClick={() => setAuthType('signup')}>Sign Up</button>
+
+      <div className="auth-container">
+        <h2 className="auth-cta">Let's play!</h2>
+        { login ? getLoginComponent() : null }
+        <button className={classNames('btn', 'btn-primary', {'disabled': login && !username})}
+                onClick={!login ? () => setLogin(true) : () => sendUser()}>
+          {login ? 'Enter' : 'Login'}
+        </button>
       </div>
-    </main>
+    </div>
   )
 }
 
