@@ -28,6 +28,19 @@ main {
   transition: all .25s;
   user-select: none;
   cursor: pointer;
+  outline: none;
+}
+
+.btn.disabled {
+  background-color: rgb(177, 177, 177);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn.disabled:hover {
+  border-radius: .6rem;
+  transform: inherit;
+  box-shadow: inherit;
 }
 
 .btn:hover {
