@@ -3,9 +3,11 @@ import Board from './Components/Board/index'
 import Home from './Components/Home/index'
 import './App.css'
 import './utils/animation.css'
-import {firestore} from 'firebase'
+import { startFirebase } from './utils/firebaseConfig'
 
 function App() {
+  startFirebase()
+
   const [startGame, setStartGame] = React.useState(false)
   const [username, setUserName] = React.useState('')
 
