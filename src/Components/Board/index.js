@@ -18,18 +18,19 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
 
   return (
     <>
-      { hasWon && <NeonText first="You" second="Won"/> }
-      <table className="board"cellSpacing="4">
-        <tbody>
-          {board.map((arr, x) => 
-            <tr key={ x }>
-              { arr.map((val, y) => 
-                  <Cell key={ `${x}-${y}` } isLit={ val } 
-                        toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
-            </tr>
-          )}
-        </tbody>
-      </table>
+      { hasWon ? <NeonText first="You" second="Won"/> :
+        <table className="board"cellSpacing="4">
+          <tbody>
+            {board.map((arr, x) => 
+              <tr key={ x }>
+                { arr.map((val, y) => 
+                    <Cell key={ `${x}-${y}` } isLit={ val } 
+                          toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
+              </tr>
+            )}
+          </tbody>
+        </table>
+      }
     </>
     )
 }

@@ -16,7 +16,7 @@ function App() {
 
   return !startGame
           ? <Home username={username} setUserName={setUserName} logUserIn={logUserIn}/>
-          : <Board rows={5} cols={5} changeLightStartOn={.3}/>
+          : <Board rows={5} cols={5} changeLightStartOn={.02}/>
 }
 
 export default App;
