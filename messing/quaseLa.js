@@ -73,11 +73,8 @@ function bfs(N, s0) {
 }
 
 function backtrack(s) {
-
   if (s === parent[s]) return
-
   backtrack(parent[s])
-
   solve.push([position[s][0], position[s][1]])
 }
 

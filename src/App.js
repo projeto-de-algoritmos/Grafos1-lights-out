@@ -15,7 +15,7 @@ function App() {
 
   return !startGame
     ? <Home username={username} setUserName={setUserName} logUserIn={logUserIn} />
-    : <Game username={username} rows={3} cols={3} chanceLightStartOn={0} />
+    : <Game username={username} rows={3} cols={3} chanceLightStartOn={0.9} />
 }
 
 export default App;
