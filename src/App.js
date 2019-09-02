@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from './Components/Board/index'
+import Game from './Components/Game/index'
 import Home from './Components/Home/index'
 import './App.css'
 import './utils/animation.css'
@@ -10,12 +10,11 @@ function App() {
 
   const logUserIn = () => {
     setStartGame(true)
-    console.log(username)
   }
 
   return !startGame
     ? <Home username={username} setUserName={setUserName} logUserIn={logUserIn} />
-    : <Board rows={5} cols={5} changeLightStartOn={.02} />
+    : <Game username={username} rows={5} cols={5} chanceLightStartOn={.7} />
 }
 
 export default App;

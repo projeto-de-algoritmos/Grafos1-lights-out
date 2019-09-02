@@ -1,5 +1,8 @@
 body {
-  height: 98vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,4 +19,12 @@ html {
   font-family: monospace;
   box-sizing: border-box;
   font-size: calc(0.71vw + 2.5px);
+}
+
+.col-spacing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 34rem;
+  align-items: center;
 }
