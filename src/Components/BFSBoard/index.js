@@ -2,12 +2,13 @@ import React from 'react'
 import Board from '../Board/index'
 import NeonText from '../NeonText/index'
 
-const BFS = ({ initialBoard, rows, cols }) => {
+const BFS = ({ initialBoard, rows, cols, setHasBFSWon }) => {
 
   const [board, setBoard] = React.useState(initialBoard)
 
   const handleCellClick = () => {
     console.log('oi')
+    // condição vitoria - > setHasBFSWon(true) depois de um timeout
   }
 
   return (

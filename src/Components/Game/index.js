@@ -13,9 +13,13 @@ const Game = ({ username, rows, cols, chanceLightStartOn }) => {
   console.log(initialBoard)
 
   return (
-    <div className="game">
-      <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} />
-      <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} />
+    <div className={hasBFSWon || hasUserWon ? null : "game"}>
+      {hasUserWon ? <NeonText first="User" second="Won" /> : hasBFSWon ? <NeonText first="User" second="Won" /> :
+        <>
+          <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} setHasUserWon={setHasUserWon} />
+          <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} setHasBFSWon={setHasBFSWon} />
+        </>
+      }
     </div>
   )
 }
