@@ -1,9 +1,10 @@
 import React from 'react'
 import { createBoard, toggleAdjCells } from '../../utils/board'
 import Board from '../Board/index'
+import NeonText from '../NeonText/index'
 import './style.css'
 
-const UserBoard = ({ rows, cols, initialBoard }) => {
+const UserBoard = ({ username, rows, cols, initialBoard }) => {
 
   const [board, setBoard] = React.useState(initialBoard)
   const [hasWon, setHasWon] = React.useState(false)
@@ -14,7 +15,13 @@ const UserBoard = ({ rows, cols, initialBoard }) => {
     hasWon && setTimeout(() => setHasWon(true), 250)
   }
 
-  return <Board board={board} rows={rows} cols={cols} handleCellClick={handleCellClick} />
+  return (
+    <div className="col-spacing">
+      <NeonText first={username} />
+      <Board board={board} rows={rows} cols={cols} handleCellClick={handleCellClick} />
+    </div>
+  )
 }
+hi
 
 export default UserBoard

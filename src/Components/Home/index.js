@@ -6,12 +6,11 @@ import './index.css'
 
 const Home = ({ username, setUserName, logUserIn }) => {
   const [login, setLogin] = React.useState(false)
-
   const getLoginComponent = () => <Login username={username} setUserName={setUserName} />
 
   return (
     <div className="home">
-      {/* <NeonText first="Lights" second="Out"/> */}
+      {/* <NeonText first="Lights" second="Out" /> */}
 
       <div className="auth-container">
         <h2 className="auth-cta">Let's play!</h2>

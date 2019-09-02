@@ -1,5 +1,6 @@
 import React from 'react'
 import Board from '../Board/index'
+import NeonText from '../NeonText/index'
 
 const BFS = ({ initialBoard, rows, cols }) => {
 
@@ -10,7 +11,10 @@ const BFS = ({ initialBoard, rows, cols }) => {
   }
 
   return (
-    <Board board={board} rows={rows} cols={cols} handleCellClick={handleCellClick} />
+    <div className="col-spacing">
+      <NeonText second="BFS" />
+      <Board board={board} rows={rows} cols={cols} handleCellClick={handleCellClick} />
+    </div>
   )
 }
 
