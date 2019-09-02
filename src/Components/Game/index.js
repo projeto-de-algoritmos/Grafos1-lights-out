@@ -25,12 +25,10 @@ const Game = ({ username, rows, cols, chanceLightStartOn }) => {
   return (
     <div className={hasBFSWon || hasUserWon ? null : "game"}>
       {hasUserWon ? <NeonText first="User" second="Won" /> : hasBFSWon ? <NeonText first="BFS" second="Won" /> :
-        cheatSet ?
-          <>
-            <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} setHasUserWon={setHasUserWon} />
-            <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} setHasBFSWon={setHasBFSWon} cheatSet={cheatSet} />
-          </>
-          : <NeonText first="Without" second="  Resolution" />}
+        <>
+          <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} setHasUserWon={setHasUserWon} player1={true} />
+          <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} setHasBFSWon={setHasBFSWon} cheatSet={cheatSet} player1={false} />
+        </>}
     </div>
   )
 }

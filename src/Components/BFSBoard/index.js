@@ -24,7 +24,7 @@ class BFSBoard extends React.Component {
       if (this.state.counter < this.props.cheatSet.length) {
         this.myLoop();
       }
-    }, 3000)
+    }, 1500)
   }
 
   constructor(props) {
@@ -33,11 +33,12 @@ class BFSBoard extends React.Component {
   }
 
   render() {
-
+    console.log('BFSBoard', this.props.player1)
     return (
       <div className="col-spacing">
         <NeonText second="BFS" />
-        <Board board={this.state.board} rows={this.props.rows} cols={this.props.cols} handleCellClick={() => alert("Don't touch me!")} />
+        <Board board={this.state.board} rows={this.props.rows} cols={this.props.cols} handleCellClick={() => alert("Don't touch me!")}
+          player1={this.props.player1} />
       </div>
     )
   }
