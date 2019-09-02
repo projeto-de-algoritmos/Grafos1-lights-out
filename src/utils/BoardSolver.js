@@ -22,10 +22,8 @@ export function solve(dims, board) {
   if (ans !== 0) {
     return []
   }
-  console.log(cheatSet)
 
   if (moves[ans]) backtrack(ans)
-
   return cheatSet
 }
 

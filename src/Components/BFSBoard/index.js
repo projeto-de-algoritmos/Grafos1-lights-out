@@ -12,26 +12,24 @@ class BFSBoard extends React.Component {
 
   myLoop = () => {
     setTimeout(() => {
+
       const newBoard = toggleAdjCells(this.state.board, this.props.rows, this.props.cols, this.props.cheatSet[this.state.counter][0] - 1, this.props.cheatSet[this.state.counter][1] - 1)
-      console.log(newBoard)
+
       this.setState({ board: newBoard })
       const hasWon = this.state.board.every(arr => arr.every(val => !val))
       hasWon && setTimeout(() => this.props.setHasBFSWon(true), 200)
 
       this.setState({ counter: this.state.counter + 1 })
-      // console.log(this.props.cheatSet.lentgh)
+
       if (this.state.counter < this.props.cheatSet.length) {
         this.myLoop();
       }
-    }, 1200)
+    }, 3000)
   }
 
   constructor(props) {
     super(props)
-    console.log(props.initialBoard)
-
     this.myLoop()
-
   }
 
   render() {
@@ -39,7 +37,7 @@ class BFSBoard extends React.Component {
     return (
       <div className="col-spacing">
         <NeonText second="BFS" />
-        <Board board={this.state.board} rows={this.props.rows} cols={this.props.cols} handleCellClick={null} />
+        <Board board={this.state.board} rows={this.props.rows} cols={this.props.cols} handleCellClick={() => alert("Don't touch me!")} />
       </div>
     )
   }

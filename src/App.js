@@ -10,12 +10,11 @@ function App() {
 
   const logUserIn = () => {
     setStartGame(true)
-    console.log(username)
   }
 
   return !startGame
     ? <Home username={username} setUserName={setUserName} logUserIn={logUserIn} />
-    : <Game username={username} rows={4} cols={4} chanceLightStartOn={.7} />
+    : <Game username={username} rows={5} cols={5} chanceLightStartOn={.7} />
 }
 
 export default App;
