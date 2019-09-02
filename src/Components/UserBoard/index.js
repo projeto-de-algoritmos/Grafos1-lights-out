@@ -1,12 +1,12 @@
 import React from 'react'
-import { createBoard, toggleAdjCells } from '../../utils/board'
+import { toggleAdjCells } from '../../utils/board'
 import Board from '../Board/index'
 import NeonText from '../NeonText/index'
 import './style.css'
 
 const UserBoard = ({ username, rows, cols, initialBoard, setHasUserWon }) => {
 
-  const [board, setBoard] = React.useState(initialBoard)
+  const [board, setBoard] = React.useState(JSON.parse(JSON.stringify(initialBoard)))
 
   const handleCellClick = (board, rows, cols, x, y) => {
     setBoard(toggleAdjCells(board, rows, cols, x, y))

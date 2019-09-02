@@ -14,7 +14,7 @@ export const toggleAdjCells = (board, rows, cols, x, y) => {
 
   function toggleCell(x, y) {
     if ((x >= 0 && x < rows) && (y >= 0 && y < cols))
-      newBoard[x][y] = !newBoard[x][y]
+      newBoard[x][y] ^= 1
   }
 
   return newBoard
