@@ -24,7 +24,7 @@ class BFSBoard extends React.Component {
       if (this.state.counter < this.props.cheatSet.length) {
         this.myLoop();
       }
-    }, 1500)
+    }, 3000)
   }
 
   constructor(props) {

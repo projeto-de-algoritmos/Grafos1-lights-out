@@ -22,13 +22,26 @@ const Game = ({ username, rows, cols, chanceLightStartOn }) => {
 
   const [initialBoard, setInitialBoard] = React.useState(testBoard)
 
+  const button = <button className='btn btn-primary' style={{ marginTop: "3rem" }} onClick={() => window.location.reload()}>
+    Play Again :D
+  </button>
+
   return (
     <div className={hasBFSWon || hasUserWon ? null : "game"}>
-      {hasUserWon ? <NeonText first="User" second="Won" /> : hasBFSWon ? <NeonText first="BFS" second="Won" /> :
+      {hasUserWon ?
         <>
-          <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} setHasUserWon={setHasUserWon} player1={true} />
-          <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} setHasBFSWon={setHasBFSWon} cheatSet={cheatSet} player1={false} />
-        </>}
+          <NeonText first="User" second="Won" />
+          {button}
+        </>
+        : hasBFSWon ?
+          <>
+            <NeonText first="BFS" second="Won" />
+            {button}
+          </> :
+          <>
+            <UserBoard username={username} rows={rows} cols={cols} initialBoard={initialBoard} setHasUserWon={setHasUserWon} player1={true} />
+            <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} setHasBFSWon={setHasBFSWon} cheatSet={cheatSet} player1={false} />
+          </>}
     </div>
   )
 }

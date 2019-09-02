@@ -11,8 +11,8 @@
 .cell:hover { transform: translateY(-.15rem); }
 
 .cell-lit-orange, .cell-lit-orange:hover { background-color: rgb(255, 166, 0); }
-.cell-lit-orange { box-shadow: 0 0 5rem rgba(255, 166, 0, 0.8); }
-.cell-lit-orange:hover { box-shadow: 0 0 8rem rgba(255, 166, 0, 0.9); }
+.cell-lit-orange { box-shadow: 0 0 5rem rgba(255, 166, 0, 0.6); }
+.cell-lit-orange:hover { box-shadow: 0 0 8rem rgba(255, 166, 0, 0.7); }
 
 .cell-lit-blue, .cell-lit-blue:hover { background-color: rgb(0, 174, 255); }
 .cell-lit-blue { box-shadow: 0 0 5rem rgba(0, 0, 255, .6); }
