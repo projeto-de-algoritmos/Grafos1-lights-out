@@ -1,11 +1,9 @@
 import React from 'react'
-
-import Cell from '../Cell/index'
-import NeonText from '../NeonText/index'
 import { createBoard, toggleAdjCells } from '../../utils/board'
+import Board from '../Board/index'
 import './style.css'
 
-const Board = ({ rows, cols, initialBoard }) => {
+const UserBoard = ({ rows, cols, initialBoard }) => {
 
   const [board, setBoard] = React.useState(initialBoard)
   const [hasWon, setHasWon] = React.useState(false)
@@ -16,23 +14,7 @@ const Board = ({ rows, cols, initialBoard }) => {
     hasWon && setTimeout(() => setHasWon(true), 250)
   }
 
-  return (
-    <>
-      {hasWon ? <NeonText first="You" second="Won" /> :
-        <table className="board" cellSpacing="4">
-          <tbody>
-            {board.map((arr, x) =>
-              <tr key={x}>
-                {arr.map((val, y) =>
-                  <Cell key={`${x}-${y}`} isLit={val}
-                    toggleCell={() => handleCellClick(board, rows, cols, x, y)} />)}
-              </tr>
-            )}
-          </tbody>
-        </table>
-      }
-    </>
-  )
+  return <Board board={board} rows={rows} cols={cols} handleCellClick={handleCellClick} />
 }
 
-export default Board
+export default UserBoard

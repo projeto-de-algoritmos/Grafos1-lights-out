@@ -1,13 +1,21 @@
 import React from 'react'
-import UserBoard from '../Board/index'
+import UserBoard from '../UserBoard/index'
+import BFSBoard from '../BFSBoard/index'
 import { createBoard } from '../../utils/board'
+import NeonText from '../NeonText/index'
 
-const Game = ({ rows, cols, changeLightStartOn }) => {
-  const [initialBoard, setInitialBoard] = React.useState(createBoard(rows, cols, changeLightStartOn))
+const Game = ({ rows, cols, chanceLightStartOn }) => {
+  const [initialBoard, setInitialBoard] = React.useState(createBoard(rows, cols, chanceLightStartOn))
+  const [hasUserWon, setHasUserWon] = React.useState(false)
+  const [hasBFSWon, setHasBFSWon] = React.useState(false)
+
   console.log(initialBoard)
 
   return (
-    <UserBoard rows={3} cols={3} changeLightStartOn={1} initialBoard={initialBoard} />
+    <div>
+      <UserBoard rows={rows} cols={cols} initialBoard={initialBoard} />
+      <BFSBoard rows={rows} cols={cols} initialBoard={initialBoard} />
+    </div>
   )
 }
 
