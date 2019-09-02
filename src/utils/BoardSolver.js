@@ -19,9 +19,13 @@ export function solve(dims, board) {
   moves[s] = 0
   const ans = bfs(N, s)
 
-  console.log(ans)
+  if (ans !== 0) {
+    return []
+  }
+  console.log(cheatSet)
 
   if (moves[ans]) backtrack(ans)
+
   return cheatSet
 }
 

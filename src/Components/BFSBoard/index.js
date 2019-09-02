@@ -16,14 +16,14 @@ class BFSBoard extends React.Component {
       console.log(newBoard)
       this.setState({ board: newBoard })
       const hasWon = this.state.board.every(arr => arr.every(val => !val))
-      hasWon && setTimeout(() => this.props.setHasBFSWon(true), 250)
+      hasWon && setTimeout(() => this.props.setHasBFSWon(true), 200)
 
       this.setState({ counter: this.state.counter + 1 })
       // console.log(this.props.cheatSet.lentgh)
       if (this.state.counter < this.props.cheatSet.length) {
         this.myLoop();
       }
-    }, 1000)
+    }, 1200)
   }
 
   constructor(props) {

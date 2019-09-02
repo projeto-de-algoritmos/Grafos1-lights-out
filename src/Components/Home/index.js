@@ -10,7 +10,7 @@ const Home = ({ username, setUserName, logUserIn }) => {
 
   return (
     <div className="home">
-      {/* <NeonText first="Lights" second="Out" /> */}
+      <NeonText first="Lights" second="Out" />
 
       <div className="auth-container">
         <h2 className="auth-cta">Let's play!</h2>
