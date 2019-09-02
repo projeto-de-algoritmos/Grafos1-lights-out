@@ -5,9 +5,9 @@ import NeonText from '../NeonText/index'
 import { createBoard, toggleAdjCells } from '../../utils/board'
 import './style.css'
 
-const Board = ({ rows, cols, changeLightStartOn }) => {
+const Board = ({ rows, cols, initialBoard }) => {
 
-  const [board, setBoard] = React.useState(createBoard(rows, cols, changeLightStartOn))
+  const [board, setBoard] = React.useState(initialBoard)
   const [hasWon, setHasWon] = React.useState(false)
 
   const handleCellClick = (board, rows, cols, x, y) => {
@@ -18,21 +18,21 @@ const Board = ({ rows, cols, changeLightStartOn }) => {
 
   return (
     <>
-      { hasWon ? <NeonText first="You" second="Won"/> :
-        <table className="board"cellSpacing="4">
+      {hasWon ? <NeonText first="You" second="Won" /> :
+        <table className="board" cellSpacing="4">
           <tbody>
-            {board.map((arr, x) => 
-              <tr key={ x }>
-                { arr.map((val, y) => 
-                    <Cell key={ `${x}-${y}` } isLit={ val } 
-                          toggleCell={ () => handleCellClick(board, rows, cols, x, y) }/>) }
+            {board.map((arr, x) =>
+              <tr key={x}>
+                {arr.map((val, y) =>
+                  <Cell key={`${x}-${y}`} isLit={val}
+                    toggleCell={() => handleCellClick(board, rows, cols, x, y)} />)}
               </tr>
             )}
           </tbody>
         </table>
       }
     </>
-    )
+  )
 }
 
 export default Board

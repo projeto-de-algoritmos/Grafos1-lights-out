@@ -6,6 +6,7 @@ let parent = Array.from({ length: MAX }).map((_, i) => i)
 let position = []
 let solve = []
 let matrix = Array(10).fill(0).map(() => Array(10).fill(Math.random() < .4 ? 1 : 0))
+console.log(matrix)
 
 function matrixToHash(N) {
 
@@ -76,7 +77,8 @@ function backtrack(s) {
   if (s === parent[s]) return
 
   backtrack(parent[s])
-  console.log(`${position[s][0]} ${position[s][1]}`)
+
+  solve.push([position[s][0], position[s][1]])
 }
 
 function main() {
@@ -92,6 +94,8 @@ function main() {
 
   console.log(`Moves = ${moves[ans]}`)
   if (moves[ans]) backtrack(ans)
+
+  console.log(solve)
 
   return
 }
